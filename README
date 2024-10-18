@@ -1,0 +1,53 @@
+Magneto quiere reclutar la mayor cantidad de mutantes para poder luchar contra los X-Men. 
+Te ha contratado a ti para que desarrolles un proyecto que detecte si un humano es mutante basándose 
+en su secuencia de ADN.
+Ejemplo (Caso mutante): String[] dna = {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"}; 
+En este caso el llamado a la función isMutant(dna) devuelve “true”.
+Se dice que el ADN es de un mutante si posee más de una secuencia de 4 caracteres iguales (A, C, G, T).
+
+Crear una API REST, hostear esa API en un cloud computing libre 
+(Google App Engine, Amazon AWS, etc), crear el servicio “/mutant/” en donde se pueda detectar
+ si un humano es mutante enviando la secuencia de ADN mediante un 
+ HTTP POST con un Json el cual tenga el siguiente formato: 
+ POST → /mutant/ { “dna”:["ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"] } 
+En caso de verificar un mutante, debería devolver un HTTP 200-OK, en caso contrario un 403-Forbidden
+
+Anexar una base de datos, la cual guarde los ADN’s verificados con la API. Solo 1 registro por ADN. 
+Exponer un servicio extra “/stats” que devuelva un Json con las estadísticas de las verificaciones 
+de ADN: {“count_mutant_dna”:40, “count_human_dna”:100: “ratio”:0.4}
+
+A T G C G A
+C A G T G C
+T T A T G T
+A G A A G G
+C C C C T A
+T C A C T G
+
+1. Desarrollo de una API REST básica con CRUD
+Descripción:
+Se te pide que desarrolles una API REST simple para manejar productos. Cada producto tendrá un id, nombre, precio y categoría. Debes implementar las operaciones básicas de CRUD (Crear, Leer, Actualizar y Eliminar).
+
+Requisitos:
+Debes usar Spring Boot y JPA para manejar la base de datos en memoria (H2 o cualquier otra).
+Implementa validación en los campos, por ejemplo, que el precio no sea negativo.
+Añade logs para cada operación.
+Devuelve respuestas HTTP adecuadas (200, 404, 400, etc.).
+Entidades:
+java
+Copy code
+@Entity
+public class Producto {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String nombre;
+    private Double precio;
+    private String categoria;
+    // Getters y Setters
+}
+Endpoints sugeridos:
+GET /productos -> Lista todos los productos.
+GET /productos/{id} -> Obtiene un producto por id.
+POST /productos -> Crea un nuevo producto.
+PUT /productos/{id} -> Actualiza un producto.
+DELETE /productos/{id} -> Elimina un producto.
