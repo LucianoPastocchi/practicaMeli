@@ -14,7 +14,7 @@ public class AppRunnerComponent implements ApplicationRunner {
     @Transactional
     public void run(ApplicationArguments args) throws Exception {
 
-        logger.info("Updating data, running");
+        logger.info("Running");
 
         /*
          * Satelite kenobi = new Satelite("kenobi");

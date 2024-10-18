@@ -7,7 +7,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Mutant {
 
     @Id
-    String[] dna;
+    private String id;
+
+    private String[] dna;
 
     public String[] getDna() {
         return dna;
@@ -15,6 +17,14 @@ public class Mutant {
 
     public void setDna(String[] dna) {
         this.dna = dna;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     @Override
